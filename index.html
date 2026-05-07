@@ -4,132 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avinash Gangasani | Full-stack AI Engineer</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap">
     <style>
         :root {
-            --azure-blue: #0078d4;
-            --dark-bg: #111827;
-            --card-bg: #1f2937;
-            --text-main: #f3f4f6;
-            --text-dim: #9ca3af;
+            --azure-primary: #0078d4;
+            --react-accent: #61dafb;
+            --bg-deep: #0d0d0d;
+            --surface-glass: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            line-height: 1.6;
             margin: 0;
+            padding: 40px 20px;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
-            padding: 2rem;
+            max-width: 900px;
+            background: linear-gradient(145deg, #161616, #0f0f0f);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 4rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .profile-card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--azure-blue);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        .header-section {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            margin: 0;
             font-weight: 700;
+            line-height: 1.1;
             color: #ffffff;
         }
 
-        .tagline {
-            color: var(--azure-blue);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+        .philosophy {
+            font-size: 1.5rem;
+            color: var(--azure-primary);
             font-weight: 300;
+            margin-top: 0.5rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
         }
 
-        .highlight {
+        .content-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .manifesto-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .manifesto-text b {
             color: #ffffff;
             font-weight: 600;
         }
 
-        .skills-chips {
-            margin-top: 2rem;
+        .quote-block {
+            border-left: 3px solid var(--azure-primary);
+            padding-left: 1.5rem;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 1.25rem;
+        }
+
+        .footer-nav {
+            margin-top: 4rem;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 20px;
         }
 
-        .chip {
-            background: rgba(0, 120, 212, 0.1);
-            border: 1px solid var(--azure-blue);
-            color: var(--azure-blue);
-            padding: 5px 15px;
-            border-radius: 20px;
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tech-item {
             font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 12px 30px;
-            background-color: var(--azure-blue);
-            color: white;
-            text-decoration: none;
+            color: var(--react-accent);
+            background: rgba(97, 218, 251, 0.05);
+            padding: 6px 14px;
             border-radius: 4px;
-            font-weight: 600;
-            transition: background 0.3s ease;
+            border: 1px solid rgba(97, 218, 251, 0.2);
         }
 
-        .contact-btn:hover {
-            background-color: #005a9e;
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 10px 24px;
+            background: var(--azure-primary);
+            border-radius: 6px;
+        }
+
+        .social-link:hover {
+            background: #005a9e;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 2rem; }
+            h1 { font-size: 2.5rem; }
+            .philosophy { font-size: 1.2rem; }
+            .footer-nav { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="profile-card">
-            <h1>Avinash Gangasani</h1>
-            <div class="tagline">Full-stack Engineer & AI Explorer</div>
-            
-            <p>
-                I am a <span class="highlight">Full-stack Developer</span> with 10+ years of experience  building the engines that power modern enterprise. My journey has taken me from the early days of legacy web architecture to the cutting edge of <span class="highlight">Cloud-Native solutions on Azure</span>[cite: 6, 12].
-            </p>
+        <header class="header-section">
+            <h1>I am Avinash Gangasani</h1>
+            <div class="philosophy">Evolving through technology</div>
+        </header>
 
-            <p>
-                My philosophy is simple: technology should be a multiplier. Whether I'm optimizing page loads by <span class="highlight">90%</span>  or integrating <span class="highlight">Large Language Models</span> into full-stack workflows[cite: 13], I focus on creating systems that are as intelligent as they are scalable.
-            </p>
+        <div class="content-grid">
+            <div class="manifesto-text">
+                I have spent <b>over a decade evolving alongside the web</b>[cite: 1], moving from the rigid world of legacy ASP.NET Webforms to modern microservices, cloud-native systems, and Azure-driven architectures[cite: 1]. Somewhere along that journey, I realized the best software is not just scalable or efficient; it is truly <b>adaptable</b>. It is the kind of technology that evolves as quickly as the people using it.
+                
+                <div class="quote-block">
+                    What keeps me interested in this field is not just writing code. It is the process of constantly reinventing myself through technology.
+                </div>
 
-            <p>
-                Currently, I am deep-diving into <span class="highlight">AI Engineering</span>[cite: 7], bridging the gap between traditional software reliability and the transformative potential of machine learning.
-            </p>
-
-            <div class="skills-chips">
-                <span class="chip">React</span>
-                <span class="chip">ASP.NET Core</span>
-                <span class="chip">Azure (AKS / Functions)</span>
-                <span class="chip">Semantic Kernel</span>
-                <span class="chip">TypeScript</span>
-                <span class="chip">LLM Integration</span>
+                I am naturally curious, self-driven, and focused on growth[cite: 1]. This is why, outside of work, I am usually deep into <b>AI</b>, experimenting with <b>agentic workflows</b>, exploring new ideas, or building side projects simply because I enjoy figuring things out[cite: 1].
+                <br><br>
+                Right now, I am at the intersection of full-stack engineering and AI, treating <b>Large Language Models</b> not as hype, but as the next meaningful layer of modern software development[cite: 1]. Whether I am reducing load times from 30 seconds to 3[cite: 1], architecting AI-powered analysis tools[cite: 1], or exploring autonomous AI agents, I am motivated by one thing: <b>making complex systems feel simple, intuitive, and useful.</b>
+                <br><br>
+                I am a <b>Microsoft developer</b> by foundation[cite: 1], a <b>React developer</b> by choice[cite: 1], and an <b>AI explorer</b> by curiosity[cite: 1]. More than just titles, I see myself as someone who is continuously evolving, both as an engineer and as a person.
             </div>
-
-            <a href="mailto:avinash.gangasani@gmail.com" class="contact-btn">Let's Build Something Intelligent</a>
         </div>
+
+        <footer class="footer-nav">
+            <div class="tech-stack">
+                <span class="tech-item">Azure</span>
+                <span class="tech-item">.NET Core</span>
+                <span class="tech-item">React</span>
+                <span class="tech-item">Agentic AI</span>
+            </div>
+            <a href="https://www.linkedin.com/in/avinash-gangasani-b20026128/" class="social-link" target="_blank">
+                Connect on LinkedIn
+            </a>
+        </footer>
     </div>
 
 </body>
