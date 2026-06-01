@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BalancedBook.NET.Benchmarks.ListVsAVLTree - Visualized</title>
+
+<style type="text/css">
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+        background-color: #f9fbfd;
+    }
+    
+    .header-box {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #1e293b;
+    }
+
+    pre {
+        margin: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.85rem;
+        color: #475569;
+        line-height: 1.5;
+    }
+    
+    table { 
+        border-collapse: collapse; 
+        width: 100%; 
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        border: 1px solid #e2e8f0;
+    }
+    
+    th { 
+        background-color: #f1f5f9; 
+        color: #475569;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        padding: 14px 16px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    td { 
+        padding: 14px 16px; 
+        border-bottom: 1px solid #e2e8f0; 
+        font-size: 0.9rem;
+        vertical-align: middle;
+    }
+    
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Target specific alignments */
+    .text-left { text-align: left; }
+    .text-right { text-align: right; font-family: "SFMono-Regular", monospace; }
+    
+    /* Highlight Methods */
+    .method-list { font-weight: 600; color: #dc2626; }    /* Red for slower */
+    .method-avl { font-weight: 600; color: #16a34a; }     /* Green for faster */
+
+    /* Visual Comparison Bar Container */
+    .bar-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    /* Dynamic Visual Bar sizing scaled relative to max time in each N group */
+    .visual-bar {
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    .bar-list { background-color: #fca5a5; }
+    .bar-avl { background-color: #86efac; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h2>Benchmark Results: List vs. AVLTree</h2>
+    <pre><code>BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8457/25H2/2025Update/HudsonValley2)
+Intel Core Ultra 7 255U 2.00GHz, 1 CPU, 14 logical and 12 physical cores
+.NET SDK 10.0.300 | .NET 10.0.8 (10.0.826.23019), X64 RyuJIT x86-64-v3</code></pre>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="text-left">Method</th>
+            <th class="text-right">N</th>
+            <th class="text-right" style="width: 30%;">Mean (Execution Time)</th>
+            <th class="text-right">Error</th>
+            <th class="text-right">StdDev</th>
+            <th class="text-right">Median</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-left method-list">List</td>
+            <td class="text-right">100</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>256.19 &mu;s</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">9.248 &mu;s</td>
+            <td class="text-right">26.533 &mu;s</td>
+            <td class="text-right">245.25 &mu;s</td>
+        </tr>
+        <tr>
+            <td class="text-left method-avl">AVLTree</td>
+            <td class="text-right">100</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>83.00 &mu;s</span>
+                    <span class="visual-bar bar-avl" style="width: 32px;"></span>
+                </div>
+            </td>
+            <td class="text-right">2.783 &mu;s</td>
+            <td class="text-right">7.849 &mu;s</td>
+            <td class="text-right">82.65 &mu;s</td>
+        </tr>
+
+        <tr style="border-top: 2px solid #e2e8f0;">
+            <td class="text-left method-list">List</td>
+            <td class="text-right">1,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>42,012.84 &mu;s</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">2,177.274 &mu;s</td>
+            <td class="text-right">6,105.310 &mu;s</td>
+            <td class="text-right">40,067.89 &mu;s</td>
+        </tr>
+        <tr>
+            <td class="text-left method-avl">AVLTree</td>
+            <td class="text-right">1,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>13,456.31 &mu;s</span>
+                    <span class="visual-bar bar-avl" style="width: 32px;"></span>
+                </div>
+            </td>
+            <td class="text-right">1,668.366 &mu;s</td>
+            <td class="text-right">4,919.216 &mu;s</td>
+            <td class="text-right">13,889.42 &mu;s</td>
+        </tr>
+
+        <tr style="border-top: 2px solid #e2e8f0;">
+            <td class="text-left method-list">List (Run 1)</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>7,054,163.15 &mu;s</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">908,960.805 &mu;s</td>
+            <td class="text-right">2,680,091.636 &mu;s</td>
+            <td class="text-right">7,040,723.85 &mu;s</td>
+        </tr>
+        <tr>
+            <td class="text-left method-list">List (Run 2)</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>4,893,965.33 &mu;s</span>
+                    <span class="visual-bar bar-list" style="width: 69px;"></span>
+                </div>
+            </td>
+            <td class="text-right">212,737.163 &mu;s</td>
+            <td class="text-right">627,260.370 &mu;s</td>
+            <td class="text-right">4,941,643.60 &mu;s</td>
+        </tr>
+        <tr>
+            <td class="text-left method-avl">AVLTree (Run 1)</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>741,425.47 &mu;s</span>
+                    <span class="visual-bar bar-avl" style="width: 11px;"></span>
+                </div>
+            </td>
+            <td class="text-right">43,417.552 &mu;s</td>
+            <td class="text-right">125,269.573 &mu;s</td>
+            <td class="text-right">768,892.68 &mu;s</td>
+        </tr>
+        <tr>
+            <td class="text-left method-avl">AVLTree (Run 2)</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>792,594.80 &mu;s</span>
+                    <span class="visual-bar bar-avl" style="width: 11px;"></span>
+                </div>
+            </td>
+            <td class="text-right">28,735.332 &mu;s</td>
+            <td class="text-right">84,726.781 &mu;s</td>
+            <td class="text-right">775,931.25 &mu;s</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
