@@ -29,7 +29,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             background: linear-gradient(145deg, #161616, #0f0f0f);
             border: 1px solid var(--border-color);
             border-radius: 16px;
@@ -51,6 +51,14 @@
             color: #ffffff;
         }
 
+        h2 {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
         .philosophy {
             font-size: 1.5rem;
             color: var(--azure-primary);
@@ -62,7 +70,7 @@
 
         .content-grid {
             display: grid;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .manifesto-text {
@@ -85,6 +93,92 @@
             font-size: 1.25rem;
         }
 
+        /* --- Project Section Styling --- */
+        .project-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--surface-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--react-accent);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .repo-link {
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: 0.2s;
+        }
+
+        .repo-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* --- Media Showcase Grid --- */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: start;
+        }
+
+        .project-media {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .media-container {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .media-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .media-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid var(--border-color);
+            margin: 0;
+        }
+
         .footer-nav {
             margin-top: 4rem;
             display: flex;
@@ -97,6 +191,7 @@
         .tech-stack {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .tech-item {
@@ -126,11 +221,13 @@
             transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .container { padding: 2rem; }
             h1 { font-size: 2.5rem; }
             .philosophy { font-size: 1.2rem; }
+            .project-showcase { grid-template-columns: 1fr; }
             .footer-nav { flex-direction: column; align-items: flex-start; }
+            .project-header { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -144,18 +241,54 @@
 
         <div class="content-grid">
             <div class="manifesto-text">
-                I have spent <b>over a decade evolving alongside the web</b>[cite: 1], moving from the rigid world of legacy ASP.NET Webforms to modern microservices, cloud-native systems, and Azure-driven architectures[cite: 1]. Somewhere along that journey, I realized the best software is not just scalable or efficient; it is truly <b>adaptable</b>. It is the kind of technology that evolves as quickly as the people using it.
+                I have spent <b>over a decade evolving alongside the web</b>, moving from the rigid world of legacy ASP.NET Webforms to modern microservices, cloud-native systems, and Azure-driven architectures. Somewhere along that journey, I realized the best software is not just scalable or efficient; it is truly <b>adaptable</b>. It is the kind of technology that evolves as quickly as the people using it.
                 
                 <div class="quote-block">
                     What keeps me interested in this field is not just writing code. It is the process of constantly reinventing myself through technology.
                 </div>
 
-                I am naturally curious, self-driven, and focused on growth[cite: 1]. This is why, outside of work, I am usually deep into <b>AI</b>, experimenting with <b>agentic workflows</b>, exploring new ideas, or building side projects simply because I enjoy figuring things out[cite: 1].
+                I am naturally curious, self-driven, and focused on growth. This is why, outside of work, I am usually deep into <b>AI</b>, experimenting with <b>agentic workflows</b>, exploring new ideas, or building side projects simply because I enjoy figuring things out.
                 <br><br>
-                Right now, I am at the intersection of full-stack engineering and AI, treating <b>Large Language Models</b> not as hype, but as the next meaningful layer of modern software development[cite: 1]. Whether I am reducing load times from 30 seconds to 3[cite: 1], architecting AI-powered analysis tools[cite: 1], or exploring autonomous AI agents, I am motivated by one thing: <b>making complex systems feel simple, intuitive, and useful.</b>
+                Right now, I am at the intersection of full-stack engineering and AI, treating <b>Large Language Models</b> not as hype, but as the next meaningful layer of modern software development. Whether I am reducing load times from 30 seconds to 3, architecting AI-powered analysis tools, or exploring autonomous AI agents, I am motivated by one thing: <b>making complex systems feel simple, intuitive, and useful.</b>
                 <br><br>
-                I am a <b>Microsoft developer</b> by foundation[cite: 1], a <b>React developer</b> by choice[cite: 1], and an <b>AI explorer</b> by curiosity[cite: 1]. More than just titles, I see myself as someone who is continuously evolving, both as an engineer and as a person.
+                I am a <b>Microsoft developer</b> by foundation, a <b>React developer</b> by choice, and an <b>AI explorer</b> by curiosity. More than just titles, I see myself as someone who is continuously evolving, both as an engineer and as a person.
             </div>
+
+            <section class="project-section">
+                <h2>First-Principles Engineering</h2>
+                <div class="manifesto-text">
+                    In an era dominated by AI auto-completion and autonomous agents, I believe that <b>deep, algorithmic problem-solving remains irreplaceable</b>. LLMs are exceptional accelerators, but true engineering lies in mastering foundational data structures to solve core computational limits. To anchor this philosophy, I build complex backend systems from pure mathematical primitives.
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">BalancedBook: High-Frequency AVL Engine</h3>
+                        <a href="https://github.com/avinash-gangasani/balanced-book" class="repo-link" target="_blank">
+                            View on GitHub ↗
+                        </a>
+                    </div>
+                    
+                    <div class="project-showcase">
+                        <div class="manifesto-text">
+                            A real-time cryptocurrency and stock order book simulation built in <b>.NET</b>. Instead of relying on built-in collections, I implemented a self-balancing <b>AVL Tree data structure from scratch</b> to handle highly volatile, streaming market order traffic. 
+                            <br><br>
+                            By ensuring structural balance during continuous insertions and cancellations, the matching engine aggregates depth metrics and isolates top-tier Bid/Ask queues deterministically in <b>O(log n)</b> time—ensuring structural performance that an unguided generative model could easily skew.
+                        </div>
+                        
+                        <div class="project-media">
+                            <div class="media-container">
+                                <img src="balanced-book-ui.gif" alt="BalancedBook Live Order Feed Interface Dashboard">
+                                <p class="media-caption">▲ Real-time order matching engine UI dashboard feed</p>
+                            </div>
+                            
+                            <div class="media-container">
+                                <img src="balanced-book-perf-report.png" alt="Benchmark report comparing List vs AVL Tree implementations">
+                                <p class="media-caption">▲ BenchmarkDotNet results: List execution scales linearly while custom AVL Tree stays efficient</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <footer class="footer-nav">
