@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>DFS_Commerce.Benchmarks.ListVsBinarySearchTree - Visualized</title>
+
+<style type="text/css">
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+        background-color: #f9fbfd;
+    }
+    
+    .header-box {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #1e293b;
+    }
+
+    pre {
+        margin: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.85rem;
+        color: #475569;
+        line-height: 1.5;
+    }
+    
+    table { 
+        border-collapse: collapse; 
+        width: 100%; 
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        border: 1px solid #e2e8f0;
+    }
+    
+    th { 
+        background-color: #f1f5f9; 
+        color: #475569;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        padding: 14px 16px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+    
+    td { 
+        padding: 14px 16px; 
+        border-bottom: 1px solid #e2e8f0; 
+        font-size: 0.9rem;
+        vertical-align: middle;
+    }
+    
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Target specific alignments */
+    .text-left { text-align: left; }
+    .text-right { text-align: right; font-family: "SFMono-Regular", monospace; }
+    
+    /* Highlight Methods */
+    .method-list { font-weight: 600; color: #dc2626; }    /* Red for slower linear execution */
+    .method-bst { font-weight: 600; color: #16a34a; }     /* Green for optimized tree traversal */
+
+    /* Visual Comparison Bar Container */
+    .bar-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    /* Dynamic Visual Bar sizing scaled relative to max execution times per bracket */
+    .visual-bar {
+        height: 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+    .bar-list { background-color: #fca5a5; }
+    .bar-bst { background-color: #86efac; }
+</style>
+</head>
+<body>
+
+<div class="header-box">
+    <h2>Benchmark Results: List vs. BinarySearchTree</h2>
+    <pre><code>BenchmarkDotNet v0.15.8, Windows 11 (10.0.26200.8457/25H2/2025Update/HudsonValley2)
+Intel Core Ultra 7 255U 2.00GHz, 1 CPU, 14 logical and 12 physical cores
+.NET SDK 10.0.300 | .NET 10.0.8 (10.0.826.23019), X64 RyuJIT x86-64-v3
+Job=.NET 10.0 | Runtime=.NET 10.0</code></pre>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th class="text-left">Method</th>
+            <th class="text-right">N</th>
+            <th class="text-right" style="width: 32%;">Mean (Execution Time)</th>
+            <th class="text-right">Error</th>
+            <th class="text-right">StdDev</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-left method-list">List</td>
+            <td class="text-right">100</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>361.14 ns</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">3.740 ns</td>
+            <td class="text-right">3.123 ns</td>
+        </tr>
+        <tr>
+            <td class="text-left method-bst">BinarySearchTree</td>
+            <td class="text-right">100</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>32.37 ns</span>
+                    <span class="visual-bar bar-bst" style="width: 9px;"></span>
+                </div>
+            </td>
+            <td class="text-right">0.685 ns</td>
+            <td class="text-right">0.641 ns</td>
+        </tr>
+
+        <tr style="border-top: 2px solid #e2e8f0;">
+            <td class="text-left method-list">List</td>
+            <td class="text-right">1,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>2,275.32 ns</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">17.427 ns</td>
+            <td class="text-right">16.302 ns</td>
+        </tr>
+        <tr>
+            <td class="text-left method-bst">BinarySearchTree</td>
+            <td class="text-right">1,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>164.78 ns</span>
+                    <span class="visual-bar bar-bst" style="width: 7px;"></span>
+                </div>
+            </td>
+            <td class="text-right">1.618 ns</td>
+            <td class="text-right">1.435 ns</td>
+        </tr>
+
+        <tr style="border-top: 2px solid #e2e8f0;">
+            <td class="text-left method-list">List</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>20,789.81 ns</span>
+                    <span class="visual-bar bar-list" style="width: 100px;"></span>
+                </div>
+            </td>
+            <td class="text-right">226.423 ns</td>
+            <td class="text-right">200.718 ns</td>
+        </tr>
+        <tr>
+            <td class="text-left method-bst">BinarySearchTree</td>
+            <td class="text-right">10,000</td>
+            <td class="text-right">
+                <div class="bar-container">
+                    <span>1,907.44 ns</span>
+                    <span class="visual-bar bar-bst" style="width: 9px;"></span>
+                </div>
+            </td>
+            <td class="text-right">18.289 ns</td>
+            <td class="text-right">17.107 ns</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

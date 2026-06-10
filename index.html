@@ -329,7 +329,7 @@
             
             <nav class="tab-navigation">
                 <button class="tab-btn active" onclick="switchTab(event, 'vision')">Me</button>
-                <button class="tab-btn" onclick="switchTab(event, 'performance')">Algorithmic Problem Solving</button>
+                <button class="tab-btn" onclick="switchTab(event, 'performance')">First Principles</button>
             </nav>
         </header>
 
@@ -352,9 +352,8 @@
             </div>
 
             <div id="performance" class="tab-content">
-                <h2>The Architectural Imperative: Why Data Structures Matter in the Age of AI</h2>
-                <div class="manifesto-text">
-                    The rise of generative AI hasn't made fundamental engineering obsolete, it has raised the bar. While AI handles the boilerplate, humans must architect the vision, translating complex business demands into highly structured, isolated engineering requirements. This demands sophisticated system design intuition an instinct that cannot be cultivated without a rigorous understanding of fundamental data structures. To demonstrate the impact of these primitive structures on modern performance, I built the real-time business use cases detailed below.
+                <h2>Beyond the Boilerplate: Why AI Raises the Bar for Core Engineering</h2>
+                <div class="manifesto-text">The rise of generative AI hasn’t made fundamental engineering obsolete—it has raised the bar. While AI handles the boilerplate code, humans must still architect the vision, translating complex business demands into highly structured, isolated engineering requirements. This demands sophisticated system design intuition—an analytical mindset that AI cannot replicate. While AI can stitch together APIs, it lacks the deep intuition required to select and optimize the data structures that prevent system bottlenecks at scale. To prove the real-world impact of these engineering fundamentals, I built the real-time business use cases detailed below. Beyond just building these applications, I generated performance benchmark reports that demonstrate exactly how selecting the right data structure can drastically outperform traditional collections.
                 </div>
 
                 <div class="project-card">
@@ -367,7 +366,7 @@
                     
                     <div class="project-showcase">
                         <div class="manifesto-text">
-                            A real-time stock order book simulation built in <b>.NET</b>. Instead of relying on built-in collections, I implemented a self-balancing <b>AVL Tree data structure from scratch</b> to handle highly volatile, streaming market order traffic. 
+                            Built a real-time stock order book simulation. Instead of relying on built-in collections, I implemented a self-balancing <b>AVL Tree data structure from scratch</b> to handle highly volatile, streaming market order traffic. 
                             <br><br>
                             By ensuring structural balance during continuous insertions and cancellations, the matching engine aggregates depth metrics and isolates top-tier Bid/Ask queues deterministically in <b>O(log n)</b> time ensuring structural performance that an unguided generative model could easily skew.
                         </div>
@@ -383,6 +382,36 @@
                                     <img src="balanced-book-perf-report.png" alt="Benchmark report comparing List vs AVL Tree implementations">
                                 </a>
                                 <p class="media-caption">BenchmarkDotNet results: List execution scales linearly while custom AVL Tree stays efficient (Click to view report)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">DFS-Commerce: In-Memory BST Catalog Filter</h3>
+                        <a href="https://github.com/avinash-gangasani/dfs-commerce" class="repo-link" target="_blank">
+                            View on GitHub ↗
+                        </a>
+                    </div>
+                    
+                    <div class="project-showcase">
+                        <div class="manifesto-text">
+                            Built an in-memory e-commerce pricing engine designed to handle ultra-low latency catalog filtering. Instead of relying on standard linear database scans or flat built-in collections which degrade under heavy search volumes, I implemented a custom <b>Binary Search Tree (BST)</b> to manage high-frequency, range-based consumer traffic natively in memory.
+                            <br><br>
+                            By substituting a traditional sequential array pass with a pruned Depth-First Search (DFS) traversal, the engine bypasses irrelevant inventory branches completely. This cuts down the worst-case lookup bottleneck from an expensive linear O(n) search down to an optimal <b>O(log n + k)</b> range-query time, ensuring high-throughput retail search performance that retains structural efficiency even as product catalogs scale ten-fold.
+                        </div>
+                        
+                        <div class="project-media">
+                            <div class="media-container">
+                                <img src="dfs-commerce-ui.gif" alt="BalancedBook Live Order Feed Interface Dashboard">
+                                <p class="media-caption">In-Memory Catalog Filter UI</p>
+                            </div>
+                            
+                            <div class="media-container">
+                                <a href="dfs-commerce-perf-full-report.html" target="_blank" class="media-link">
+                                    <img src="dfs-commerce-perf-report.png" alt="Benchmark report comparing List vs AVL Tree implementations">
+                                </a>
+                                <p class="media-caption">BenchmarkDotNet results: List execution scales linearly while Binary Search Tree stays efficient (Click to view report)</p>
                             </div>
                         </div>
                     </div>
